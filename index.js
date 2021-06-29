@@ -3,10 +3,11 @@ const cors = require('cors');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const { urlencoded } = require('express');
-const Router = require('./routes/index')
+const Router = require('./routes/index');
+const server = http.createServer(app);
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 app.use(express.json())
 app.use(urlencoded({ extended: false }))
@@ -24,6 +25,6 @@ app.get('/', (req, res) => {
     res.send('hello world!');
 })
 
-app.listen(PORT);
+server.listen(PORT);
 
-// moudule.exports = app;
+module.exports = server;

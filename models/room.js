@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   room.init({
-    catgory: DataTypes.STRING,
+    category: DataTypes.STRING,
     uuid: DataTypes.STRING,
     entry: DataTypes.STRING,
     valid: DataTypes.BOOLEAN
