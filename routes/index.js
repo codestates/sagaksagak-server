@@ -14,9 +14,9 @@ router.patch('/user/:id/username', controllers.username);
 router.patch('/user/:id/password', controllers.password);
 router.get('/studylog', controllers.studylog);
 router.get('/studylog/:id', controllers.record);
-router.post('/todo', controllers.newTodo);
-router.patch('/todo/:id', controllers.checkTodo);
-router.delete('/todo/:id', controllers.deleteTodo);
+router.post('/todo', controllers.newToDo);
+router.patch('/todo/:id', controllers.checkToDo);
+router.delete('/todo/:id', controllers.deleteToDo);
 router.get('/rooms', controllers.roomList);
 
 module.exports = router;

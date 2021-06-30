@@ -7,11 +7,11 @@ module.exports = {
     username: require('./user/profile/username'),
     password: require('./user/profile/password'),
     signup: require('./user/signup'),
-    studylog: require('./studylog/todo'),
+    studylog: require('./studylog/toDo'),
     record: require('./studylog/record'),
-    newTodo: require('./todo/new'),
-    checkTodo: require('./todo/check'),
-    deleteTodo: require('./todo/delete'),
+    newToDo: require('./todo/new'),
+    checkToDo: require('./toDo/check'),
+    deleteToDo: require('./toDo/delete'),
     roomList: require('./room/list'),
     reissuance: require('./user/reissuance')
 }
