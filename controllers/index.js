@@ -13,4 +13,5 @@ module.exports = {
     checkTodo: require('./todo/check'),
     deleteTodo: require('./todo/delete'),
     roomList: require('./room/list'),
+    reissuance: require('./user/reissuance')
 }

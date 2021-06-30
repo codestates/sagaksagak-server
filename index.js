@@ -4,9 +4,11 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const { urlencoded } = require('express');
 const Router = require('./routes/index');
+const app = express();
+const http = require('http')
 const server = http.createServer(app);
 
-const app = express();
+
 const PORT = 5000;
 
 app.use(express.json())
