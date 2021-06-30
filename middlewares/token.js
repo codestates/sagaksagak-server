@@ -8,10 +8,11 @@ module.exports = {
     generateRefreshToken: (data) => {
         return sign(data, process.env.REFRESH_SECRET, { expiresIn: '5d' })
     },
-    sendAccessToken: (res, accessToken, username) => {
+    sendAccessToken: (res, accessToken, userName, id) => {
         res.status(200).send({
             accessToken,
-            username
+            userName,
+            id
         });
     },
     sendRefreshToken: (res, refreshToken) => {

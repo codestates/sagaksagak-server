@@ -1,7 +1,8 @@
 const { user } = require('../../models');
+const { generateAccessToken, generateRefreshToken, sendRefreshToken, sendAccessToken } = require('../../middlewares/token');
 
 module.exports = async (req, res) => {
-    const { email, username, password, category } = req.body;
+    const { email, username, password } = req.body;
     const nameInfo = await user.findOne({
         where: { username: username }
     })
@@ -10,14 +11,24 @@ module.exports = async (req, res) => {
     })
     if (!emailInfo && !nameInfo) {
         // data = JSON.stringify(category) 카테고리가 객체면 주석풀고 16줄 변경
-        await user.create({
+        const userInfo = await user.create({
             email,
             username,
-            category,
             password
         })
+        
+        delete userInfo.dataValues.password;
+        const accessToken = generateAccessToken(userInfo.dataValues);
+        const refreshToken = generateRefreshToken(userInfo.dataValues);
+        const userName = userInfo.dataValues.username;
+        const id = userInfo.dataValues.id;
+
+        sendRefreshToken(res, refreshToken)
         res.status(201).send({
-            message: 'ok'
+            message: 'ok',
+            userName,
+            id,
+            accessToken
         })
     } else if (emailInfo) {
         res.status(409).send({
