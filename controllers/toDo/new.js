@@ -1,5 +1,5 @@
 const { todo } = require('../../models');
-const { verifyAccessToken } = require('../../midlewares/token');
+const { verifyAccessToken } = require('../../middlewares/token');
 
 module.exports = async (req, res) => {
     const accessToken = verifyAccessToken(req);
