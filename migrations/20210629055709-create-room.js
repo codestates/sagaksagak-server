@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      catgory: {
+      category: {
         type: Sequelize.STRING
       },
       uuid: {
