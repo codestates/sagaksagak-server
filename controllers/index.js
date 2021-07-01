@@ -13,5 +13,6 @@ module.exports = {
     checkToDo: require('./todo/check'),
     deleteToDo: require('./todo/delete'),
     roomList: require('./room/list'),
-    reissuance: require('./user/reissuance')
+    reissuance: require('./user/reissuance'),
+    googleAPI: require('./oauth/oauthgoogle')
 }

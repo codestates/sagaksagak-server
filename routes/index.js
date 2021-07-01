@@ -18,5 +18,6 @@ router.post('/todo', controllers.newToDo);
 router.patch('/todo/:id', controllers.checkToDo);
 router.delete('/todo/:id', controllers.deleteToDo);
 router.get('/rooms', controllers.roomList);
+router.post('/oauth/google/api', controllers.googleAPI)
 
 module.exports = router;
