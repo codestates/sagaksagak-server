@@ -4,14 +4,14 @@ module.exports = {
     logout: require('./user/logout'),
     profile: require('./user/profile/userInfo'),
     category: require('./user/profile/category'),
-    username: require('./user/profile/userName'),
+    username: require('./user/profile/username'),
     password: require('./user/profile/password'),
     signup: require('./user/signup'),
-    studylog: require('./studylog/toDo'),
+    studylog: require('./studylog/todo'),
     record: require('./studylog/record'),
     newToDo: require('./todo/new'),
-    checkToDo: require('./toDo/check'),
-    deleteToDo: require('./toDo/delete'),
+    checkToDo: require('./todo/check'),
+    deleteToDo: require('./todo/delete'),
     roomList: require('./room/list'),
     reissuance: require('./user/reissuance')
 }

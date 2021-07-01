@@ -13,11 +13,11 @@ module.exports = async (req, res) => {
             delete userInfo.password;
             const accessToken = generateAccessToken(userInfo);
             const refreshToken = generateRefreshToken(userInfo);
-            const userName = userInfo.username
+            const username = userInfo.username
             const id = userInfo.id
     
             sendRefreshToken(res, refreshToken)
-            sendAccessToken(res, accessToken, userName, id);
+            sendAccessToken(res, accessToken, username, id);
         } else {
             res.status(401).send({
                 message: 'wrong password'

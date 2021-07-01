@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     
     if (refreshToken === null) {
         res.status(403).send({
-            message: 'refreshToken Expired'
+            message: 'refresh token expired'
         })
     } else {
         const userEmail = refreshToken.email;
