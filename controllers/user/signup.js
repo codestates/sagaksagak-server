@@ -20,13 +20,12 @@ module.exports = async (req, res) => {
         delete userInfo.dataValues.password;
         const accessToken = generateAccessToken(userInfo.dataValues);
         const refreshToken = generateRefreshToken(userInfo.dataValues);
-        const userName = userInfo.dataValues.username;
-        const id = userInfo.dataValues.id;
+        const { username, id } = userInfo.dataValues
 
         sendRefreshToken(res, refreshToken)
         res.status(201).send({
             message: 'ok',
-            userName,
+            username,
             id,
             accessToken
         })

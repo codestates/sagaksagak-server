@@ -4,7 +4,7 @@ const { verifyAccessToken } = require('../../middlewares/token')
 module.exports = async (req, res) => {
     const accessToken = verifyAccessToken(req);
     if (accessToken !== null) {
-        const id = req.headers["toDoId"];
+        const id = req.headers["todoId"];
         if (!id) {
             res.status(404).send({
                 message: 'not found'
