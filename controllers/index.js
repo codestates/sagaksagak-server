@@ -14,6 +14,7 @@ module.exports = {
     deleteToDo: require('./todo/delete'),
     roomList: require('./room/list'),
     reissuance: require('./user/reissuance'),
-    googleAPI: require('./oauth/oauthgoogle'),
+    googleLogin: require('./oauth/googleLogin'),
+    googleSignup: require('./oauth/googleSignup'),
     duplicateCheck: require('./user/duplicateCheck')
 }
