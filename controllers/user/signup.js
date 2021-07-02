@@ -3,6 +3,7 @@ const { generateAccessToken, generateRefreshToken, sendRefreshToken, sendAccessT
 
 module.exports = async (req, res) => {
     const { email, username, password } = req.body;
+    console.log('#####################',username)
     const nameInfo = await user.findOne({
         where: { username: username }
     })
@@ -12,21 +13,21 @@ module.exports = async (req, res) => {
     if (!emailInfo && !nameInfo) {
         // data = JSON.stringify(category) 카테고리가 객체면 주석풀고 16줄 변경
         const userInfo = await user.create({
-            email,
-            username,
-            password
+            email: email,
+            username: username,
+            password: password
         })
         
         delete userInfo.dataValues.password;
         const accessToken = generateAccessToken(userInfo.dataValues);
         const refreshToken = generateRefreshToken(userInfo.dataValues);
-        const { username, id } = userInfo.dataValues
+        const { name, id } = userInfo.dataValues
 
         sendRefreshToken(res, refreshToken)
         res.status(201).send({
             message: 'ok',
-            username,
-            id,
+            username: name,
+            userId: id,
             accessToken
         })
     } else if (emailInfo) {
