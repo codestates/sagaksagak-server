@@ -4,7 +4,7 @@ const router = express.Router();
 const controllers = require("../controllers/index")
 
 router.post('/signup', controllers.signup);
-router.get('/signup/:username', controllers.duplicateCheck)
+router.get('/signup/username-exist', controllers.duplicateCheck)
 router.post('/user', controllers.login);
 router.get('/user/token', controllers.reissuance);
 router.get('/user/logout', controllers.logout);

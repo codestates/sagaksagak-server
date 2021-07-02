@@ -1,7 +1,7 @@
 const { user } = require('../../models')
 
 module.exports = async (req, res) => {
-    const username = req.params.username;
+    const username = req.headers['username'];
     const userInfo = await user.findOne({
         where: { username: username }
     })
