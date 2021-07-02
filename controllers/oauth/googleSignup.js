@@ -2,7 +2,7 @@ const { OAuth2Client } = require('google-auth-library');
 require('dotenv').config();
 const client = new OAuth2Client(process.env.CLIENT_ID);
 const { user } = require('../../models');
-const { generateAccessToken, generateRefreshToken, sendAccessToken,sendRefreshToken } =require('../../middlewares/token')
+const { generateAccessToken, generateRefreshToken,sendRefreshToken } =require('../../middlewares/token')
 
 module.exports = async (req, res) => {
     const { tokenId, subId }  = req.body
@@ -46,20 +46,7 @@ module.exports = async (req, res) => {
                 accessToken
             })
         }
-    }else{
-        if(userInfo && subId === userInfo.subId){
-            delete userInfo.password;
-            const accessToken = generateAccessToken(userInfo)
-            const refreshToken = generateRefreshToken(userInfo)
-            
-            sendRefreshToken(res, refreshToken)
-            sendAccessToken(res, accessToken, userInfo.username, userInfo.id)
-
-        }else{
-            res.status(404).send('go to sign up')
-        }
     }
-    
 }
 
     
