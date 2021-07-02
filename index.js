@@ -9,10 +9,10 @@ const http = require('http')
 const server = http.createServer(app);
 
 
-const PORT = 80;
+const PORT = process.env.PORT;
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: process.env.CLIENT_ORIGIN,
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
 }))
