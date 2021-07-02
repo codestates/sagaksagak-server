@@ -20,22 +20,19 @@ module.exports = async (req, res) => {
         raw: true
     })
 
-    if(subId){
-        if(userInfo && subId === userInfo.subId){
-            delete userInfo.password;
-            const accessToken = generateAccessToken(userInfo)
-            const refreshToken = generateRefreshToken(userInfo)
-            
-            sendRefreshToken(res, refreshToken)
-            sendAccessToken(res, accessToken, userInfo.username, userInfo.id)
-    
-        }else{
-            res.status(404).send('go to sign up')
-        }
+
+    if (userInfo && subId === userInfo.subId) {
+        delete userInfo.password;
+        const accessToken = generateAccessToken(userInfo)
+        const refreshToken = generateRefreshToken(userInfo)
+
+        sendRefreshToken(res, refreshToken)
+        sendAccessToken(res, accessToken, userInfo.username, userInfo.id, userInfo.subId)
+
+    } else {
+        res.status(404).send('not found')
     }
 
-    
-    
 }
 
     

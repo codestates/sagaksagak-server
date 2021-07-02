@@ -2,7 +2,7 @@ const { OAuth2Client } = require('google-auth-library');
 require('dotenv').config();
 const client = new OAuth2Client(process.env.CLIENT_ID);
 const { user } = require('../../models');
-const { generateAccessToken, generateRefreshToken,sendRefreshToken } =require('../../middlewares/token')
+const { generateAccessToken, generateRefreshToken, sendRefreshToken } =require('../../middlewares/token')
 
 module.exports = async (req, res) => {
     const { tokenId, subId }  = req.body
@@ -20,33 +20,32 @@ module.exports = async (req, res) => {
         raw: true
     })
 
+    if (userInfo) {
+        res.status(409).send({
+            message: 'user already exist'
+        })
+    } else {
 
-    if(!subId){
-        if(userInfo){
-            res.status(409).send({
-                message: 'user already exist'
-            })
-        }else{
+        const users = await user.create({
+            email: email,
+            username: name,
+            subId: sub
+        })
 
-            const users = await user.create({
-                email: email,
-                username: name,
-                subId: sub
-            })
-    
-            delete users.dataValues.password;
-            const accessToken = generateAccessToken(users.dataValues);
-            const refreshToken = generateRefreshToken(users.dataValues);
-    
-            sendRefreshToken(res, refreshToken);
-    
-            res.status(201).send({
-                userId: users.dataValues.id,
-                username: users.dataValues.username, 
-                accessToken
-            })
-        }
+        delete users.dataValues.password;
+        const accessToken = generateAccessToken(users.dataValues);
+        const refreshToken = generateRefreshToken(users.dataValues);
+
+        sendRefreshToken(res, refreshToken);
+
+        res.status(201).send({
+            userId: users.dataValues.id,
+            username: users.dataValues.username,
+            accessToken,
+            subId: userInfo.subId
+        })
     }
+
 }
 
     
