@@ -9,7 +9,7 @@ const http = require('http')
 const server = http.createServer(app);
 
 
-const PORT = 5000;
+const PORT = 80;
 
 app.use(cors({
     origin: ["http://localhost:3000"],
