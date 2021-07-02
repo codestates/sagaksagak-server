@@ -4,14 +4,14 @@ const { verifyAccessToken } = require('../../middlewares/token')
 module.exports = async (req, res) => {
     const accessToken = verifyAccessToken(req);
     if (accessToken !== null) {
-        const id = req.headers["todoId"];
-        if (!id) {
+        const todoId = req.params.id;
+        if (!todoId) {
             res.status(404).send({
                 message: 'not found'
             })
         } else {
             await todo.destroy({
-                where: { id: id }
+                where: { id: todoId }
             })
             res.status(200).send({
                 message: 'ok'
