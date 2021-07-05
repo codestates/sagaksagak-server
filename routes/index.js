@@ -1,7 +1,7 @@
-// const router = require("../index");
 const express = require('express');
 const router = express.Router();
 const controllers = require("../controllers/index")
+const roomModules = require('../controllers/room/roomModules')
 
 router.post('/signup', controllers.signup);
 router.post('/signup/username-exist', controllers.duplicateCheck)
@@ -18,7 +18,9 @@ router.get('/studylog/:id', controllers.record);
 router.post('/todo', controllers.newToDo);
 router.patch('/todo/:id', controllers.checkToDo);
 router.delete('/todo/:id', controllers.deleteToDo);
-router.get('/rooms', controllers.roomList);
+router.get('/room/list', controllers.roomList);
+router.post('/room/new', roomModules.createRoom)
+router.post('/room/:roomId', roomModules.joinRoom)
 router.post('/oauth/google/login', controllers.googleLogin);
 router.post('/oauth/google/signup', controllers.googleSignup)
 

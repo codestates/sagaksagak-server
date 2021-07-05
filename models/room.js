@@ -14,10 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   room.init({
+    roomName: DataTypes.STRING,
     category: DataTypes.STRING,
     uuid: DataTypes.STRING,
     entry: DataTypes.STRING,
-    valid: DataTypes.BOOLEAN
+    valid: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
   }, {
     sequelize,
     modelName: 'room',

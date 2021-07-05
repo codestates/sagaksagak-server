@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      roomName: {
+        type: Sequelize.STRING
+      },
       category: {
         type: Sequelize.STRING
       },
@@ -18,7 +21,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       valid: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
       },
       createdAt: {
         allowNull: false,
