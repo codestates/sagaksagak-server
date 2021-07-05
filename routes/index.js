@@ -18,7 +18,7 @@ router.get('/studylog/:id', controllers.record);
 router.post('/todo', controllers.newToDo);
 router.patch('/todo/:id', controllers.checkToDo);
 router.delete('/todo/:id', controllers.deleteToDo);
-router.get('/rooms', controllers.roomList);
+router.get('/room/list', controllers.roomList);
 router.post('/oauth/google/login', controllers.googleLogin);
 router.post('/oauth/google/signup', controllers.googleSignup)
 
