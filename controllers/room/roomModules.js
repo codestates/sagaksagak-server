@@ -8,7 +8,8 @@ module.exports = {
             roomName,
             category,
             uuid,
-            userId: userId
+            userId: userId,
+            entry: []
         })
         res.status(201).send({
             roomId: uuid
