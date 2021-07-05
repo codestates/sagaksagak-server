@@ -4,7 +4,7 @@ const controllers = require("../controllers/index")
 const roomModules = require('../controllers/room/roomModules')
 
 router.post('/signup', controllers.signup);
-router.get('/signup/username-exist', controllers.duplicateCheck)
+router.post('/signup/username-exist', controllers.duplicateCheck)
 router.post('/user', controllers.login);
 router.get('/user/token', controllers.reissuance);
 router.get('/user/logout', controllers.logout);
