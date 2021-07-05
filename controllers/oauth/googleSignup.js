@@ -25,7 +25,6 @@ module.exports = async (req, res) => {
             message: 'user already exist'
         })
     } else {
-
         const users = await user.create({
             email: email,
             username: name,
@@ -42,7 +41,7 @@ module.exports = async (req, res) => {
             userId: users.dataValues.id,
             username: users.dataValues.username,
             accessToken,
-            subId: userInfo.subId
+            subId: users.dataValues.subId
         })
     }
 
