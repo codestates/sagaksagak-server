@@ -8,8 +8,7 @@ module.exports = {
             roomName,
             category,
             uuid,
-            userId: userId,
-            entry: []
+            userId: userId
         })
         res.status(201).send({
             roomId: uuid
@@ -20,14 +19,21 @@ module.exports = {
         const roomInfo = await room.findOne({
             where: { uuid: roomId }, raw: true
         })
-        if (roomInfo.entry.length < 6) {
+        if (roomInfo.entry === null) {
             res.status(200).send({
-                users: roomInfo.entry
+                message: 'ok'
             })
         } else {
-            res.status(403).send({
-                message: 'full room'
-            })
+            let room = JSON.parse(roomInfo.entry)
+            if (room.length < 6) {
+                res.status(200).send({
+                    users: room
+                })
+            } else {
+                res.status(403).send({
+                    message: 'full room'
+                })
+            }
         }
     },
     io: (socket) => {
@@ -36,20 +42,24 @@ module.exports = {
                 where: { uuid: roomId, userId }, raw: true
             })
             if (!roomInfo) {
-                const room1 = await room.findOne({
+                const roomOne = await room.findOne({
                     where: { uuid: roomId }, raw: true
                 })
+
                 let users = {};
                 users[peerId] = username;
-                room1.entry.push(users);
+                let entry = JSON.parse(roomOne.entry);
+                entry.push(users);
+                entry = JSON.stringify(entry)
                 await room.update({
-                    entry: room1.entry
-                }, { where: { uuid: roomId }})
+                    entry: entry
+                }, { where: { uuid: roomId } })
             } else {
                 let users = {};
                 users[peerId] = username;
+                users = JSON.stringify([users])
                 await room.update({
-                    entry: [users]
+                    entry: users
                 }, { where: { uuid: roomId } })
             }
 
@@ -58,15 +68,18 @@ module.exports = {
             socket.broadcast.to(roomId).emit('user-connected', peerId, username)
 
             socket.on('disconnect', async () => {
-                const room2 = await room.findOne({
+                const roomInfo = await room.findOne({
                     where: { uuid: roomId }, raw: true
                 })
-                if (room2.entry.length === 1) {
+                let entry = JSON.parse(roomInfo.entry)
+                if (entry.length === 1) {
                     await room.update({
-                        valid: false
+                        valid: false,
+                        entry: null
                     }, { where: { uuid: roomId } })
                 } else {
-                    let newEntry = room2.entry.filter(el => el[peerId] !== username);
+                    let newEntry = entry.filter(el => el[peerId] !== username);
+                    newEntry = JSON.stringify(newEntry)
                     await room.update({
                         entry: newEntry
                     }, { where: { uuid: roomId } })
