@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     roomName: DataTypes.STRING,
     category: DataTypes.STRING,
     uuid: DataTypes.STRING,
-    entry: DataTypes.STRING,
+    entry: DataTypes.STRING(1234),
     valid: {
       type: DataTypes.BOOLEAN,
       defaultValue: true

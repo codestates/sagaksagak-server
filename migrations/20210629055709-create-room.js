@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       entry: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(1234)
       },
       valid: {
         type: Sequelize.BOOLEAN,
