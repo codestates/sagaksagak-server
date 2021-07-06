@@ -6,4 +6,5 @@ sudo chmod -R 777 /home/ubuntu/server
 cd /home/ubuntu/server
 
 echo "Stopping any existing node servers"
-pm2 delete index.js
+npm install pm2 -g
+sudo pm2 delete index
