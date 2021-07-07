@@ -71,6 +71,14 @@ module.exports = {
                 socket.broadcast.to(roomId).emit('user-connected', peerId, username)
             }
 
+            socket.on('camera-off', async (peerId, username) => {
+                socket.broadcast.to(roomId).emit('user-camera-off', peerId, username)
+            })
+
+            socket.on('camera-on', async (peerId, username) => {
+                socket.broadcast.to(roomId).emit('user-camera-on', peerId, username)
+            })
+
             socket.on('disconnect', async () => {
                 const roomInfo = await room.findOne({
                     where: { uuid: roomId }, raw: true
