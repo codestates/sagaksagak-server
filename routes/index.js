@@ -19,6 +19,7 @@ router.post('/todo', controllers.newToDo);
 router.patch('/todo/:id', controllers.checkToDo);
 router.delete('/todo/:id', controllers.deleteToDo);
 router.get('/room/list', controllers.roomList);
+router.get('/room/search', controllers.roomSearch)
 router.post('/room/new', roomModules.createRoom);
 router.post('/room/:roomId', roomModules.joinRoom);
 router.post('/oauth/google/login', controllers.googleLogin);
