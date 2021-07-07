@@ -39,9 +39,9 @@ module.exports = {
     io: (socket) => {
         socket.on('join-room', async (roomId, peerId, userId, username) => {
             const roomInfo = await room.findOne({
-                where: { uuid: roomId, userId }, raw: true
+                where: { uuid: roomId }, raw: true
             })
-            if (!roomInfo) {
+            if (roomInfo.entry !== null) {
                 const roomOne = await room.findOne({
                     where: { uuid: roomId }, raw: true
                 })
@@ -76,17 +76,19 @@ module.exports = {
                     where: { uuid: roomId }, raw: true
                 })
                 let entry = JSON.parse(roomInfo.entry)
-                if (entry[0][peerId] === username) {
-                    await room.update({
-                        valid: false,
-                        entry: null
-                    }, { where: { uuid: roomId } })
-                } else {
-                    let newEntry = entry.filter(el => el[peerId] !== username);
-                    newEntry = JSON.stringify(newEntry)
-                    await room.update({
-                        entry: newEntry
-                    }, { where: { uuid: roomId } })
+                if (entry !== null) {
+                    if (entry[0][peerId] === username) {
+                        await room.update({
+                            valid: false,
+                            entry: null
+                        }, { where: { uuid: roomId } })
+                    } else {
+                        let newEntry = entry.filter(el => el[peerId] !== username);
+                        newEntry = JSON.stringify(newEntry)
+                        await room.update({
+                            entry: newEntry
+                        }, { where: { uuid: roomId } })
+                    }
                 }
                 socket.broadcast.to(roomId).emit('user-disconnected', peerId, username)
             })
