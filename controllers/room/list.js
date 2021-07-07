@@ -9,7 +9,8 @@ module.exports = async (req, res) => {
         return {
             roomName: el.roomName,
             roomUuid: el.uuid,
-            usersNum: el.entry.length
+            usersNum: el.entry !== null ? JSON.parse(el.entry).length : 0,
+            category: el.category
         }
     })
     res.status(200).send({
