@@ -42,24 +42,17 @@ module.exports = {
                 where: { uuid: roomId }, raw: true
             })
             if (roomInfo.entry !== null) {
-                const roomOne = await room.findOne({
-                    where: { uuid: roomId }, raw: true
-                })
-
                 let users = {};
                 users[peerId] = username;
-                let entry = JSON.parse(roomOne.entry);
-                if (entry.length < 6) {
-                    entry.push(users);
-                    entry = JSON.stringify(entry)
-                    await room.update({
-                        entry: entry
-                    }, { where: { uuid: roomId } })
-                    socket.join(roomId)
-                    socket.broadcast.to(roomId).emit('user-connected', peerId, username)
-                } else {
-                    socket.broadcast.to(roomId).emit('user-connected', peerId, username, 'full room');
-                }
+                let entry = JSON.parse(roomInfo.entry);
+
+                entry.push(users);
+                entry = JSON.stringify(entry)
+                await room.update({
+                    entry: entry
+                }, { where: { uuid: roomId } })
+                socket.join(roomId)
+                socket.broadcast.to(roomId).emit('user-connected', peerId, username)
             } else {
                 let users = {};
                 users[peerId] = username;
@@ -69,6 +62,17 @@ module.exports = {
                 }, { where: { uuid: roomId } })
                 socket.join(roomId)
                 socket.broadcast.to(roomId).emit('user-connected', peerId, username)
+            }
+            if (userId !== 1) {
+                let [find, create] = await join_log.findOrCreate({
+                    where: { roomId: roomInfo.id, userId },
+                    defaults: { roomId: roomInfo.id, userId }
+                })
+                if (find) {
+                    await join_log.update({
+                        userId
+                    }, { where: { roomId: roomInfo.id, userId } })
+                }
             }
 
             socket.on('camera-off', async (peerId, username) => {
@@ -99,6 +103,18 @@ module.exports = {
                     }
                 }
                 socket.broadcast.to(roomId).emit('user-disconnected', peerId, username)
+                if (userId !== 1) {
+                    let log = await join_log.findOne({
+                        where: {
+                            roomId: roomInfo.id,
+                            userId
+                        }, raw: true
+                    })
+
+                    await join_log.update({
+                        workHours: log.workHours + ((new Date() - log.updatedAt) / 1000 / 60)
+                    }, { where: { roomId: roomInfo.id, userId }})
+                }
             })
         })
     }
