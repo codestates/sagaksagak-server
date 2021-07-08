@@ -33,21 +33,21 @@ module.exports = async (req, res) => {
                 where: { createdAt: { [Op.between]: [today, Date.parse(new Date())] } },
             })
             if(todayList){
-                res.status(200).send({
-                    todayList: [{
-                        id: users.userId,
-                        content: users.content,
-                        updatedAt: users.updatedAt
-                    }]
-                })
+                // res.status(200).send({
+                //     todayList: [{
+                //         id: users.userId,
+                //         content: users.content,
+                //         updatedAt: users.updatedAt
+                //     }]
+                // })
             }else{
-                res.status(200).send({
-                    todoList: [{
-                        id: users.userId,
-                        content: users.content,
-                        createdAt: users.createdAt
-                    }]
-                })
+                // res.status(200).send({
+                //     todoList: [{
+                //         id: users.userId,
+                //         content: users.content,
+                //         createdAt: users.createdAt
+                //     }]
+                // })
             }
         }
     }else{
