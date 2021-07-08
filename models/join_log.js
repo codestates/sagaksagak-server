@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   join_log.init({
-    workHours: DataTypes.INTEGER
+    workHours: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    }
   }, {
     sequelize,
     modelName: 'join_log',

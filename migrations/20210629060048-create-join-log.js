@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       workHours: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       createdAt: {
         type: Sequelize.DATE,
