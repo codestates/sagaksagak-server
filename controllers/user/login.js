@@ -1,8 +1,9 @@
 const { user } = require('../../models')
 const { generateAccessToken, generateRefreshToken, sendAccessToken, sendRefreshToken } = require('../../middlewares/token');
-
+const { sign, verify } = require('jsonwebtoken');
 module.exports = async (req, res) => {
     const { email, password } = req.body;
+    
     const userInfo = await user.findOne({
         where: { email: email }, raw: true
     })
@@ -12,12 +13,15 @@ module.exports = async (req, res) => {
         if (dbpass === password) { // 비크립트 도입시 컴패어로 바꿔줄것
             delete userInfo.password;
             const accessToken = generateAccessToken(userInfo);
+            console.log('33333333333333333', verify(accessToken, process.env.ACCESS_SECRET))
             const refreshToken = generateRefreshToken(userInfo);
             const username = userInfo.username
             const id = userInfo.id
     
             sendRefreshToken(res, refreshToken)
             sendAccessToken(res, accessToken, username, id);
+            
+            
         } else {
             res.status(401).send({
                 message: 'wrong password'
