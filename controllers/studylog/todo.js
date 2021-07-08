@@ -4,6 +4,7 @@ const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
     const userToken = verifyAccessToken(req);
+
     function getToday() {
         const date = new Date();
         const year = date.getFullYear();
@@ -11,45 +12,60 @@ module.exports = async (req, res) => {
         const day = ("0" + date.getDate()).slice(-2);
         return year + "-" + month + "-" + day;
     }
+
     const today = String(getToday())
 
     if (userToken !== null) {
-        const users = await todo.findOne({
+        const users = await todo.findAll({
             where: {
                 userId: userToken.id,
             },
             raw: true
         })
-        if (users.isDone) {
-            res.status(200).send({
-                donelist: [{
-                    id: users.userId,
-                    content: users.content,
-                    updatedAt: users.updatedAt
-                }]
-            })
-        }else{
-            const todayList = await users.findAll({
-                where: { createdAt: { [Op.between]: [today, Date.parse(new Date())] } },
-            })
-            if(todayList){
-                // res.status(200).send({
-                //     todayList: [{
-                //         id: users.userId,
-                //         content: users.content,
-                //         updatedAt: users.updatedAt
-                //     }]
-                // })
-            }else{
-                // res.status(200).send({
-                //     todoList: [{
-                //         id: users.userId,
-                //         content: users.content,
-                //         createdAt: users.createdAt
-                //     }]
-                // })
+
+        const doneList = await users.map(el => {
+            if(el.isDone){
+                return {
+                    id: el.userId,
+                    content: el.content,
+                    updatedAt: el.updatedAt
+                }
             }
-        }
+        })
+
+        const todoList = await users.map(el => {
+            if(!el.isDone){
+                return {
+                    id: el.userId,
+                    content: el.content,
+                    createdAt: el.createdAt
+                }
+            }
+        })
+
+        const todaytodo = await users.findAll({
+            where: {
+                [Op.and]: [
+                    { createdAt: { [Op.between]: [today, Date.parse(new Date())] } },
+                    { isDone: false }
+                ]
+            }
+        })
+
+        const todayList = await todaytodo.map(el => {
+            return {
+                id: el.userId,
+                content: el.content,
+                updatedAt: el.updatedAt
+            }
+        })
+
+        res.status(200).send({
+            doneList,
+            todoList,
+            todayList
+        })
+     
     }else{
         res.status(403).send({
             message: "access token expired"
