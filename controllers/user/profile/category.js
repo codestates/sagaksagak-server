@@ -3,7 +3,6 @@ const { verifyAccessToken } = require('../../../middlewares/token')
 
 module.exports = async (req, res) => {
     const userToken = verifyAccessToken(req);
-
     if (!userToken) {
         res.status(403).send({
             message: 'ok'
