@@ -13,20 +13,21 @@ module.exports = async (req, res) => {
         return year + "-" + month + "-" + day;
     }
 
-    const today = String(getToday())
+    const today = String(getToday()) 
 
     if (userToken !== null) {
         const users = await todo.findAll({
             where: {
                 userId: userToken.id,
             },
+            order: [["updatedAt", "DESC"]],
             raw: true
         })
 
         const doneList = await users.map(el => {
             if(el.isDone){
                 return {
-                    id: el.userId,
+                    id: el.id,
                     content: el.content,
                     updatedAt: el.updatedAt
                 }
@@ -36,25 +37,26 @@ module.exports = async (req, res) => {
         const todoList = await users.map(el => {
             if(!el.isDone){
                 return {
-                    id: el.userId,
+                    id: el.id,
                     content: el.content,
                     createdAt: el.createdAt
                 }
             }
         })
 
-        const todaytodo = await users.findAll({
+        const todaytodo = await todo.findAll({
             where: {
                 [Op.and]: [
                     { createdAt: { [Op.between]: [today, Date.parse(new Date())] } },
-                    { isDone: false }
+                    { isDone: false, userId: userToken.id }            
                 ]
-            }
+            },
+            order: [["updatedAt", "DESC"]]
         })
 
         const todayList = await todaytodo.map(el => {
             return {
-                id: el.userId,
+                id: el.id,
                 content: el.content,
                 updatedAt: el.updatedAt
             }
