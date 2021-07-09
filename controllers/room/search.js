@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     } else {
         let keyword = await decodeURI(q)
         const roomInfo = await room.findAll({
-            where: { roomName: { [Op.like]: `%${keyword}%` } }, raw: true
+            where: { roomName: { [Op.like]: `%${keyword}%` }, valid: true }, raw: true
         })
 
         if (!roomInfo) {
@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
                     search = [keyword]
                 } else {
                     search = JSON.parse(userInfo.search);
-                    if (search.length >= 3) {
+                    if (search.length >= 2) {
                         search.pop();
                         search.unshift(keyword);
                     } else {
