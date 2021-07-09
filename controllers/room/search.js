@@ -2,7 +2,8 @@ const { user, room } = require('../../models');
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
-    const { userId } = req.headers;
+    let { userid } = req.headers;
+    let userId = Number(userid)
     const { q } = req.query;
     if (!userId || !q) {
         res.status(400).send({
