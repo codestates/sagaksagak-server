@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
         }
     })
     res.status(200).send({
-        rooms
+        rooms,
+        recommend: rooms.slice(0, 3)
     })
 }
