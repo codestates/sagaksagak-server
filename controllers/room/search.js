@@ -13,16 +13,30 @@ module.exports = async (req, res) => {
         let keyword = await decodeURI(q)
         keyword = keyword.split(' ');
         let roomInfo = [];
-        for (let i = 0; i < keyword.length; i++) {
-            roomInfo.push(await room.findAll({
-                where: {
-                    [Op.or]: [
-                        { roomName: { [Op.like]: `%${keyword[i]}%` }, valid: true },
-                        { category: { [Op.like]: `%${keyword[i]}%` }, valid: true }
-                    ]
-                }
-            }))
-        }
+        // for (let i = 0; i < keyword.length; i++) {
+        //     roomInfo.push(await room.findAll({
+        //         where: {
+        //             [Op.or]: [
+        //                 { roomName: { [Op.like]: `%${keyword[i]}%` }, valid: true },
+        //                 { category: { [Op.like]: `%${keyword[i]}%` }, valid: true }
+        //             ]
+        //         }
+        //     }))
+        // }
+        const searchPromises = await keyword.map((word) => {
+            return (
+                room.findAll({
+                    where: {
+                        [Op.or]: [
+                            { roomName: { [Op.like]: `%${word}%` }, valid: true },
+                            { category: { [Op.like]: `%${word}%` }, valid: true }
+                        ]
+                    }
+                })
+            )
+        })
+
+        roomInfo = await Promise.all(searchPromises)
 
         if (roomInfo.length === 0) {
             res.status(404).send({
