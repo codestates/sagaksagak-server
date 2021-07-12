@@ -26,7 +26,7 @@ module.exports = {
                 rooms.push(room[i])
             }
         }
-        return rooms
+        return rooms.flat(1)
     },
     categoryUpdate: (category, arr, plus) => {
         for (let i = 0; i < arr.length; i++) {
