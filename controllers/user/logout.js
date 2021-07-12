@@ -1,10 +1,10 @@
 module.exports = async (req, res) => {
-    const { Authorization } = req.headers
+    const { authorization } = req.headers
 
-    if(!Authorization) {
+    if(!authorization) {
         res.status(403).send()
     }else{
-        delete Authorization;
+        delete authorization;
         res.cookie("refreshToken", '');
         res.status(205).send({
             message: "ok"
