@@ -19,5 +19,22 @@ module.exports = {
             }
         })
         return rooms
+    },
+    categoryUpdate: (category, arr, plus) => {
+        for (let i = 0; i < arr.length; i++) {
+            category.map(el => {
+                if (Object.keys(el).join() === arr[i]) {
+                    if (!plus) {
+                        el[Object.keys(el)] = el[Object.keys(el)] + 1
+                    } else {
+                        el[Object.keys(el)] = plus
+                    }
+                }
+            })
+        }
+        category.sort((a, b) => {
+            return b[Object.keys(b).join()] - a[Object.keys(a).join()]
+        })
+        return JSON.stringify(category)
     }
 }

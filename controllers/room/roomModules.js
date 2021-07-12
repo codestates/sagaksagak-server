@@ -1,4 +1,5 @@
 const { user, room, join_log } = require('../../models')
+const { categoryUpdate } = require('./util')
 const { v4: uuidV4 } = require('uuid')
 module.exports = {
     createRoom: async (req, res) => {
@@ -69,7 +70,7 @@ module.exports = {
                 socket.join(roomId)
                 socket.broadcast.to(roomId).emit('user-connected', peerId, username)
             }
-            if (userId !== 1) {
+            if (userId !== 1 && userId) {
                 let [find, create] = await join_log.findOrCreate({
                     where: { roomId: roomInfo.id, userId },
                     defaults: { roomId: roomInfo.id, userId }
@@ -79,6 +80,25 @@ module.exports = {
                         userId
                     }, { where: { roomId: roomInfo.id, userId } })
                 }
+
+                // 카테고리 업데이트(카테고리별 선호도 점수 주기)
+                const userCategory = await user.findOne({
+                    where: { id: userId },
+                    attributes: ['category'],
+                    raw: true
+                })
+                let target;
+                if (userCategory.category !== null) {
+                    target = JSON.parse(userCategory.category)
+                } else {
+                    target = [{'코딩': 0}, {'국내입시': 0}, {'해외입시': 0}, {'영어': 0}, {'제2외국어': 0},
+                    {'취업': 0}, {'자격증': 0}, {'공무원': 0}, {'예체능': 0}, {'자유': 0}]
+                }
+                let category = categoryUpdate(target, [roomInfo.category])
+
+                await user.update({
+                    category
+                }, { where: { id: userId } })
             }
 
             socket.on('camera-off', async (peerId, username) => {
@@ -109,7 +129,9 @@ module.exports = {
                     }
                 }
                 socket.broadcast.to(roomId).emit('user-disconnected', peerId, username)
-                if (userId !== 1) {
+                if (userId !== 1 && userId) {
+
+                    // join_log테이블 workHours컬럼 계산 후 저장
                     let log = await join_log.findOne({
                         where: {
                             roomId: roomInfo.id,
