@@ -14,7 +14,7 @@ module.exports = {
     },
     deduplication: (room) => {
         let rooms = room.reduce((a, b) => {
-            if (a['id'] === b['id']) {
+            if (a.id === b.id) {
                 return a
             }
         })
