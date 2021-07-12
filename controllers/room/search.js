@@ -1,5 +1,5 @@
 const { user, room } = require('../../models');
-const { roomList } = require('./util')
+const { roomList, deduplication } = require('./util')
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
@@ -14,45 +14,25 @@ module.exports = async (req, res) => {
         let keyword = await decodeURI(q)
         keyword = keyword.split(' ');
         let roomInfo = [];
-        // for (let i = 0; i < keyword.length; i++) {
-        //     roomInfo.push(await room.findAll({
-        //         where: {
-        //             [Op.or]: [
-        //                 { roomName: { [Op.like]: `%${keyword[i]}%` }, valid: true },
-        //                 { category: { [Op.like]: `%${keyword[i]}%` }, valid: true }
-        //             ]
-        //         }
-        //     }))
-        // }
-        const searchPromises = await keyword.map((word) => {
-            return (
-                room.findAll({
-                    where: {
-                        [Op.or]: [
-                            { roomName: { [Op.like]: `%${word}%` }, valid: true },
-                            { category: { [Op.like]: `%${word}%` }, valid: true }
-                        ]
-                    }
-                })
-            )
-        })
+        for (let i = 0; i < keyword.length; i++) {
+            roomInfo.push(await room.findAll({
+                where: {
+                    [Op.or]: [
+                        { roomName: { [Op.like]: `%${keyword[i]}%` }, valid: true },
+                        { category: { [Op.like]: `%${keyword[i]}%` }, valid: true }
+                    ]
+                }, raw: true
+            }))
+        }
 
-        roomInfo = await Promise.all(searchPromises)
+        roomInfo = await deduplication(roomInfo)
 
         if (roomInfo.length === 0) {
             res.status(404).send({
                 message: 'not found'
             })
         } else {
-            // let rooms = roomInfo.map(el => {
-            //     return {
-            //         roomName: el.roomName,
-            //         roomUuid: el.uuid,
-            //         usersNum: el.entry !== null ? JSON.parse(el.entry).length : 0,
-            //         category: el.category
-            //     }
-            // })
-            let rooms = roomList(roomInfo);
+            let rooms = await roomList(roomInfo);
 
             if (userId !== 1) {
                 let search;

@@ -53,7 +53,6 @@ module.exports = async (req, res) => {
                 }
             }
             let recommend = search.concat(recommends);
-
             recommend = deduplication(recommend)
             recommend = roomList(recommend)
             res.status(200).send({
