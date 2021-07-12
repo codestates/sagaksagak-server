@@ -1,4 +1,5 @@
 const { user, room } = require('../../models');
+const { roomList } = require('./util')
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
@@ -43,19 +44,16 @@ module.exports = async (req, res) => {
                 message: 'not found'
             })
         } else {
-            roomInfo = await roomInfo.reduce((a, b) => {
-                if (a['id'] === b['id']) {
-                    return a
-                }
-            })
-            let rooms = roomInfo.map(el => {
-                return {
-                    roomName: el.roomName,
-                    roomUuid: el.uuid,
-                    usersNum: el.entry !== null ? JSON.parse(el.entry).length : 0,
-                    category: el.category
-                }
-            })
+            // let rooms = roomInfo.map(el => {
+            //     return {
+            //         roomName: el.roomName,
+            //         roomUuid: el.uuid,
+            //         usersNum: el.entry !== null ? JSON.parse(el.entry).length : 0,
+            //         category: el.category
+            //     }
+            // })
+            let rooms = roomList(roomInfo);
+
             if (userId !== 1) {
                 let search;
 
