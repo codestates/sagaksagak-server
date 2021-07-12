@@ -13,11 +13,19 @@ module.exports = {
         return rooms
     },
     deduplication: (room) => {
-        let rooms = room.reduce((a, b) => {
-            if (a.id === b.id) {
-                return a
+        let rooms = [room[0]]
+        let valid;
+        for (let i = 1; i < room.length; i++) {
+            valid = false
+            for (let j = 0; j < rooms.length; j++) {
+                if (room[i]['id'] === rooms[j]['id']) {
+                    valid = true
+                }
             }
-        })
+            if (!valid) {
+                rooms.push(room[i])
+            }
+        }
         return rooms
     },
     categoryUpdate: (category, arr, plus) => {
