@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     //     }
     // })
     let rooms = roomList(roomInfo)
-    console.log(rooms)
+
     res.status(200).send({
         rooms,
         recommend: rooms.slice(0, 3)
