@@ -83,7 +83,6 @@ module.exports = async (req, res) => {
                     raw: true
                 })
                 recommendToGuest = roomList(recommendToGuest)
-                console.log(recommendToGuest)
                 res.status(200).send({
                     rooms: rooms.slice(page * 9, 9 + (page * 9)),
                     recommend: recommendToGuest.slice(0, 3)
@@ -103,6 +102,7 @@ module.exports = async (req, res) => {
 
             let keyword = await decodeURI(q)
             keyword = keyword.split(' ');
+            console.log('keyword', keyword)
             let roomInfo = [];
             for (let i = 0; i < keyword.length; i++) {
                 roomInfo = roomInfo.concat(await room.findAll({

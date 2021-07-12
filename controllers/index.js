@@ -13,7 +13,6 @@ module.exports = {
     checkToDo: require('./todo/check'),
     deleteToDo: require('./todo/delete'),
     roomList: require('./room/list'),
-    roomSearch: require('./room/search'),
     reissuance: require('./user/reissuance'),
     googleLogin: require('./oauth/googleLogin'),
     googleSignup: require('./oauth/googleSignup'),
