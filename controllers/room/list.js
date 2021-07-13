@@ -5,12 +5,17 @@ const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
     let { userid } = req.headers;
-    let userId = Number(userid)
+    let userId
+    if (userid) {
+        userId = Number(userid)
+    }
     let { q, page } = req.query;
     page = Number(page)
     if (!q) {
         const roomInfo = await room.findAll({
-            where: { valid: true }, raw: true
+            where: { valid: true },
+            order: [['createdAt', 'DESC']],
+            raw: true
         })
         const rooms = roomList(roomInfo)
 
@@ -28,42 +33,62 @@ module.exports = async (req, res) => {
                         for (let i = 0; i < keyword.length; i++) {
                             if (Array.isArray(keyword[i])) {
                                 for (let j = 0; j < keyword[i].length; j++) {
-                                    search = search.concat(await room.findAll({
+                                    let findRoom = await room.findOne({
                                         where: {
                                             [Op.or]: [
                                                 { roomName: { [Op.like]: `%${keyword[i][j]}%` }, valid: true },
                                                 { category: { [Op.like]: `%${keyword[i][j]}%` }, valid: true }
                                             ]
-                                        }, raw: true
-                                    }))
+                                        },
+                                        order: [['updatedAt', 'DESC']],
+                                        raw: true
+                                    })
+                                    if (findRoom !== null) {
+                                        search = search.concat(findRoom)
+                                    }
                                 }
                             } else {
-                                search = search.concat(await room.findAll({
+                                let findRoom = await room.findOne({
                                     where: {
                                         [Op.or]: [
                                             { roomName: { [Op.like]: `%${keyword[i]}%` }, valid: true },
                                             { category: { [Op.like]: `%${keyword[i]}%` }, valid: true }
                                         ]
-                                    }, raw: true
-                                }))
+                                    },
+                                    order: [['updatedAt', 'DESC']],
+                                    raw: true
+                                })
+                                if (findRoom !== null) {
+                                    search = search.concat(findRoom)
+                                }
                             }
                         }
                     }
                     if (userInfo.category !== null) {
                         let userCategory = JSON.parse(userInfo.category);
                         for (let i = 0; i < userCategory.length; i++) {
-                            recommends = recommends.concat(await room.findAll({
+                            let findRoom = await room.findOne({
                                 where: { category: String(Object.keys(userCategory[i]).join()), valid: true },
+                                order: [['updatedAt', 'DESC']],
                                 raw: true
-                            }))
+                            })
+                            if (findRoom !== null) {
+                                recommends = recommends.concat(findRoom)
+                            }
                         }
+                    } else {
+                        recommends = recommends.concat(await room.findAll({
+                            where: { valid: true },
+                            order: [['updatedAt', 'DESC']],
+                            raw: true
+                        }))
                     }
                     let recommend = search.concat(recommends);
                     recommend = deduplication(recommend)
                     recommend = roomList(recommend)
                     res.status(200).send({
                         rooms: rooms.slice(page * 9, 9 + (page * 9)),
-                        recommend: recommend.slice(0, 3)
+                        recommend: recommend.slice(0, 5)
                     })
                 } else {
                     res.status(200).send({
@@ -79,13 +104,13 @@ module.exports = async (req, res) => {
             if (page === 0) {
                 let recommendToGuest = await room.findAll({
                     where: { valid: true },
-                    order: [['createdAt', 'DESC']],
+                    order: [['updatedAt', 'DESC']],
                     raw: true
                 })
                 recommendToGuest = roomList(recommendToGuest)
                 res.status(200).send({
                     rooms: rooms.slice(page * 9, 9 + (page * 9)),
-                    recommend: recommendToGuest.slice(0, 3)
+                    recommend: recommendToGuest.slice(0, 5)
                 })
             } else {
                 res.status(200).send({
@@ -99,9 +124,7 @@ module.exports = async (req, res) => {
                 message: 'bad request'
             })
         } else {
-
             let keyword = await decodeURI(q)
-            keyword = keyword.split(' ');
             console.log('keyword', keyword)
             let roomInfo = [];
             for (let i = 0; i < keyword.length; i++) {
@@ -111,12 +134,13 @@ module.exports = async (req, res) => {
                             { roomName: { [Op.like]: `%${keyword[i]}%` }, valid: true },
                             { category: { [Op.like]: `%${keyword[i]}%` }, valid: true }
                         ]
-                    }, raw: true
+                    },
+                    order: [['updatedAt', 'DESC']],
+                    raw: true
                 }))
             }
 
             roomInfo = await deduplication(roomInfo)
-
 
             if (roomInfo.length === 0) {
                 res.status(404).send({

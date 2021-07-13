@@ -1,10 +1,19 @@
 module.exports = {
     roomList: (room) => {
         let rooms = room.map(el => {
+            let users = 0;
+            if (el.entry !== null) {
+                let entry = JSON.parse(el.entry);
+                if (Object.keys(entry[0]).join() !== 'DUMMY') {
+                    users = entry.length
+                } else {
+                    users = entry.length - 1
+                }
+            }
             return {
                 roomName: el.roomName,
                 roomUuid: el.uuid,
-                usersNum: el.entry !== null ? JSON.parse(el.entry).length : 0,
+                usersNum: users,
                 category: el.category,
                 masterName: el.entry === null ? 'guest' : JSON.parse(el.entry)[0][Object.keys(JSON.parse(el.entry)[0])],
                 created: (new Date() - el.createdAt) / 1000 / 60
