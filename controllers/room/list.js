@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     if (userid) {
         userId = Number(userid)
     }
-    let { q, page } = req.query;
+    let { q, page } = req.query
     page = Number(page)
     if (!q) {
         const roomInfo = await room.findAll({
@@ -124,8 +124,7 @@ module.exports = async (req, res) => {
                 message: 'bad request'
             })
         } else {
-            let keyword = await decodeURI(q)
-            console.log('keyword', keyword)
+            let keyword = await decodeURI(q).split(" ")
             let roomInfo = [];
             for (let i = 0; i < keyword.length; i++) {
                 roomInfo = roomInfo.concat(await room.findAll({
