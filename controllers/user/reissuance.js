@@ -1,8 +1,8 @@
-const { verifyrefreshToken, generateAccessToken, sendAccessToken } = require('../../middlewares/token');
+const { verifyRefreshToken, generateAccessToken, sendAccessToken } = require('../../middlewares/token');
 const { user } = require('../../models')
 
 module.exports = async (req, res) => {
-    const refreshToken = verifyrefreshToken(req);
+    const refreshToken = verifyRefreshToken(req);
     
     if (refreshToken === null) {
         res.status(403).send({

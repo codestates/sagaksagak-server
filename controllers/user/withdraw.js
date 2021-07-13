@@ -1,42 +1,43 @@
-const { user, todo, room, join_log } = require('../../models');
-const { verifyAccessToken } = require('../../middlewares/token');
+const { user, todo, join_log } = require('../../models');
+const { verifyRefreshToken } = require('../../middlewares/token');
 
 module.exports = async (req, res) => {
-    const userToken = await verifyAccessToken(req)
-    if(!userToken){
+    const userToken = await verifyRefreshToken(req)
+    if (userToken === null) {
         res.status(403).send({
-            message: 'access token expired'
+            message: 'refresh token expired'
         })
-    }else{
+    } else {
         const userId = req.params.id;
-        const userPass = req.body.password;
-
-        const userInfo = await user.findOne({
-            where: {
-                id: userId
-            }, raw: true
-        })
-        if (userPass !== userInfo.password) {
-            res.status(401).send({
-                message: 'wrong password'
+        const password = req.body.password;
+        if (!userId || !password) {
+            res.status(400).send({
+                message: 'bad request'
             })
         } else {
-            await user.destroy({
-                where: { id: userInfo.id }
+            const userInfo = await user.findOne({
+                where: {
+                    id: userId
+                }
             })
-            await todo.destroy({
-                where: { userId: userInfo.id }
-            })
-            await room.destroy({
-                where: { userId: userInfo.id }
-            })
-            await join_log.destroy({
-                where: { userId: userInfo.id }
-            })
-            res.status(205).send({
-                message: 'ok'
-            })
+            if (!userInfo.comparePassword(password)) {
+                res.status(401).send({
+                    message: 'wrong password'
+                })
+            } else {
+                await user.destroy({
+                    where: { id: userId }
+                })
+                await todo.destroy({
+                    where: { userId }
+                })
+                await join_log.destroy({
+                    where: { userId }
+                })
+                res.status(205).send({
+                    message: 'ok'
+                })
+            }
         }
     }
-
 }
