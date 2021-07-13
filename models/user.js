@@ -1,9 +1,20 @@
 'use strict';
+const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
+dotenv.config()
+
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
+    comparePassword(password) {
+      return bcrypt.compareSync(password, this.password)
+    }
+    changePassword(password) {
+      const salt = bcrypt.genSaltSync(10, process.env.SALT);
+      return bcrypt.hashSync(password, salt);
+    }
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -22,6 +33,14 @@ module.exports = (sequelize, DataTypes) => {
     socketId: DataTypes.STRING,
     subId: DataTypes.STRING
   }, {
+    hooks: {
+      beforeCreate: async (user) => {
+        if (user.password) {
+          const salt = await bcrypt.genSaltSync(10, process.env.SALT);
+          user.password = bcrypt.hashSync(user.password, salt);
+        }
+      },
+    },
     sequelize,
     modelName: 'user',
   });
