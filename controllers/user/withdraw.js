@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
         })
     } else {
         const userId = req.params.id;
-        const password = req.body.password;
+        const password = req.headers.password;
         if (!userId || !password) {
             res.status(400).send({
                 message: 'bad request'
