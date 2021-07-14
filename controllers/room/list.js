@@ -138,14 +138,13 @@ module.exports = async (req, res) => {
                     raw: true
                 }))
             }
-
-            roomInfo = await deduplication(roomInfo)
-
+            
             if (roomInfo.length === 0) {
                 res.status(404).send({
                     message: 'not found'
                 })
             } else {
+                roomInfo = await deduplication(roomInfo)
                 let rooms = await roomList(roomInfo);
 
                 if (userId !== 1) {

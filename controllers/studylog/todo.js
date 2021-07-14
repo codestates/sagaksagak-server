@@ -3,7 +3,9 @@ const { verifyAccessToken } = require('../../middlewares/token')
 const { Op } = require("sequelize");
 
 module.exports = async (req, res) => {
-    const userToken = verifyAccessToken(req);
+
+    const userToken = await verifyAccessToken(req);
+    const today = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`
 
     if (userToken !== null) {
         const users = await todo.findAll({
@@ -14,26 +16,31 @@ module.exports = async (req, res) => {
             raw: true
         })
 
-        const doneList = await users.map(el => {
+        let doneList = await users.filter(el => {
             if(el.isDone){
+                let date = el.updatedAt
+                date.setMinutes( date.getMinutes() + 540 );
                 return {
                     id: el.id,
                     content: el.content,
-                    updatedAt: el.updatedAt
+                    updatedAt: date
                 }
             }
         })
+        // doneList = await doneList.filter(el => el !== undefined)
 
-        const todoList = await users.map(el => {
+        let todoList = await users.filter(el => {
             if(!el.isDone){
+                let date = el.createdAt
+                date.setMinutes( date.getMinutes() + 540 );
                 return {
                     id: el.id,
                     content: el.content,
-                    createdAt: el.createdAt
+                    createdAt: date
                 }
             }
         })
-
+        // todoList = await todoList.filter(el => el !== undefined)
         res.status(200).send({
             doneList,
             todoList
