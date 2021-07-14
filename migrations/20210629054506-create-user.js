@@ -23,7 +23,7 @@ module.exports = {
       search: {
         type: Sequelize.STRING
       },
-      socketId: {
+      interest: {
         type: Sequelize.STRING
       },
       subId: {
