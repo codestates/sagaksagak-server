@@ -3,6 +3,7 @@ const { verifyAccessToken } = require('../../middlewares/token')
 
 module.exports = async (req, res) => {
     const accessToken = verifyAccessToken(req);
+    
     if (accessToken !== null) {
         const todoId = req.params.id;
         if (!todoId) {

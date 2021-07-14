@@ -10,8 +10,19 @@ module.exports = async (req, res) => {
                 message: 'not found'
             })
         } else {
-            await todo.update({ isDone: true },
-                { where: { id: todoId } })
+            let todos = await todo.findOne({
+                where: { id: todoId },
+                raw: true
+            })
+            let boolean;
+            if (todos.isDone === 1) {
+                boolean = 0
+            } else {
+                boolean = 1
+            }
+            await todo.update({
+                isDone: boolean
+            }, { where: { id: todoId } })
             res.status(202).send({
                 message: 'ok'
             })
