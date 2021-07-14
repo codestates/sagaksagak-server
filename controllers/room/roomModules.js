@@ -27,12 +27,16 @@ module.exports = {
         } else {
             let room = JSON.parse(roomInfo.entry)
             if (room.length < 6) {
+                if (String(Object.keys(room[0]).join()) === "DUMMY") {
+                    room.shift()
+                }
                 let users = await room.map(el => {
                     return {
                         peerId: Object.keys(el).join(),
                         username: el[Object.keys(el).join()]
                     }
                 })
+                console.log(users)
                 res.status(200).send({
                     users
                 })
