@@ -23,9 +23,10 @@ app.use(cors({
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
 }))
 app.use(express.json())
+app.use(cookieParser());
 app.use(urlencoded({ extended: false }))
 app.use('/', Router)
-app.use(cookieParser());
+
 io.on('connection', roomModules.io)
 
 app.get('/', (req, res) => {

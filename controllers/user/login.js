@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
             const id = userInfo.id
            
             sendRefreshToken(res, refreshToken)
-            sendAccessToken(res, accessToken, username, id, email, userInfo.category);
+            sendAccessToken(res, accessToken, username, id, email, JSON.parse(userInfo.category));
             
         } else {
             res.status(401).send({

@@ -3,7 +3,7 @@ const { user } = require('../../models')
 
 module.exports = async (req, res) => {
     const refreshToken = verifyRefreshToken(req);
-    
+
     if (refreshToken === null) {
         res.status(403).send({
             message: 'refresh token expired'
@@ -18,10 +18,15 @@ module.exports = async (req, res) => {
                 message: 'not found'
             })
         } else {
+            const { relogin } = req.headers;
             delete userInfo.password
             const accessToken = generateAccessToken(userInfo);
-
-            sendAccessToken(res, accessToken);
+            if (relogin) {
+                const { username, id, email, category } = userInfo
+                sendAccessToken(res, accessToken, username, id, email, category);
+            } else {
+                sendAccessToken(res, accessToken);
+            }
         }
     }
 }
