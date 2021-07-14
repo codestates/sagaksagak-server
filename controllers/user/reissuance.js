@@ -3,6 +3,7 @@ const { user } = require('../../models')
 
 module.exports = async (req, res) => {
     const refreshToken = verifyRefreshToken(req);
+    const { relogin } = req.headers;
 
     if (refreshToken === null) {
         res.status(403).send({
@@ -18,12 +19,12 @@ module.exports = async (req, res) => {
                 message: 'not found'
             })
         } else {
-            const { relogin } = req.headers;
+
             delete userInfo.password
             const accessToken = generateAccessToken(userInfo);
             if (relogin) {
-                const { username, id, email, category } = userInfo
-                sendAccessToken(res, accessToken, username, id, email, category);
+                const { username, id, email, category, subId } = userInfo
+                sendAccessToken(res, accessToken, username, id, email, JSON.parse(category), subId);
             } else {
                 sendAccessToken(res, accessToken);
             }

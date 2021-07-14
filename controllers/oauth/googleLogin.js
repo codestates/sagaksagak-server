@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
         const refreshToken = generateRefreshToken(userInfo)
 
         sendRefreshToken(res, refreshToken)
-        sendAccessToken(res, accessToken, userInfo.username, userInfo.id, userInfo.subId)
+        sendAccessToken(res, accessToken, userInfo.username, userInfo.id, userInfo.email, JSON.parse(userInfo.category), userInfo.subId)
 
     } else {
         res.status(404).send('not found')

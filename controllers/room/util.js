@@ -3,6 +3,7 @@ module.exports = {
         let rooms = room.map(el => {
             let users = 0;
             if (el.entry !== null) {
+                console.log('@@@@@@@@@@', el.entry)
                 let entry = JSON.parse(el.entry);
                 if (Object.keys(entry[0]).join() !== 'DUMMY') {
                     users = entry.length
