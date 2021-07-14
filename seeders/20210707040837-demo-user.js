@@ -1,5 +1,10 @@
 'use strict';
 const { v4: uuidV4 } = require('uuid')
+const dotenv = require('dotenv');
+const bcrypt = require('bcrypt');
+dotenv.config()
+const salt = bcrypt.genSaltSync(10, process.env.SALT);
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -16,7 +21,7 @@ module.exports = {
       id: 1,
       username: 'guest',
       email: 'guest@naver.com',
-      password: '12341234',
+      password: bcrypt.hashSync('12341234', salt),
       category: JSON.stringify(['코딩', '자격증', '국내입시'])
     }], {})
 
@@ -24,7 +29,7 @@ module.exports = {
       id: 2,
       username: 'david',
       email: 'david@naver.com',
-      password: '12341234',
+      password: bcrypt.hashSync('12341234', salt),
       category: JSON.stringify(['코딩', '자격증', '자유'])
     }], {})
 
@@ -32,7 +37,7 @@ module.exports = {
       id: 3,
       username: 'hwang',
       email: 'hwang@naver.com',
-      password: '12341234',
+      password: bcrypt.hashSync('12341234', salt),
       category: JSON.stringify(['코딩', '자격증', '자유'])
     }], {})
 
@@ -40,7 +45,7 @@ module.exports = {
       id: 4,
       username: 'git',
       email: 'git@naver.com',
-      password: '12341234',
+      password: bcrypt.hashSync('12341234', salt),
       category: JSON.stringify(['공무원', '자격증', '코딩'])
     }], {})
 
@@ -48,7 +53,7 @@ module.exports = {
       id: 5,
       username: 'seo',
       email: 'seo@naver.com',
-      password: '12341234',
+      password: bcrypt.hashSync('12341234', salt),
       category: JSON.stringify(['코딩', '영어', '제2외국어'])
     }], {})
 
@@ -57,7 +62,7 @@ module.exports = {
       roomName: '주니어 개발자들 모여라',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"오늘도코딩"}])
+      entry: JSON.stringify([{"DUMMY":"오늘도코딩"}]),
     }])
 
     await queryInterface.bulkInsert('rooms', [{
