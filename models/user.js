@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     search: DataTypes.STRING,
-    socketId: DataTypes.STRING,
+    interest: DataTypes.STRING,
     subId: DataTypes.STRING
   }, {
     hooks: {
