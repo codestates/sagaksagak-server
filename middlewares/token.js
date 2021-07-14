@@ -6,15 +6,16 @@ module.exports = {
         return sign(data, process.env.ACCESS_SECRET, { expiresIn: `${1000 * 60 * 60 * 24 * 14}s` })
     },
     generateRefreshToken: (data) => {
-        return sign(data, process.env.REFRESH_SECRET, { expiresIn: '30d' })
+        return sign(data, process.env.REFRESH_SECRET, { expiresIn: '10s' })
     },
-    sendAccessToken: (res, accessToken, username, userId, email, category) => {
+    sendAccessToken: (res, accessToken, username, userId, email, category, subId) => {
         res.status(200).send({
             accessToken,
             username,
             userId,
             email,
-            category
+            category,
+            subId
         });
     },
     sendRefreshToken: (res, refreshToken) => {

@@ -3,6 +3,7 @@ const { verifyRefreshToken } = require('../../middlewares/token');
 
 module.exports = async (req, res) => {
     const userToken = await verifyRefreshToken(req)
+    
     if (userToken === null) {
         res.status(403).send({
             message: 'refresh token expired'

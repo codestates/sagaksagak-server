@@ -49,7 +49,7 @@ module.exports = async (req, res) => {
         }
         await user
             .update({
-                category: req.body.newcategory
+                category: JSON.stringify(req.body.newcategory)
             }, { where: {id: userId} })
 
             res.status(201).send({
