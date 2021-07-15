@@ -5,7 +5,7 @@ const { interestUpdate } = require('../../room/util')
 module.exports = async (req, res) => {
     const userToken = verifyAccessToken(req);
     let { newcategory } = req.body
-    console.log(newcategory)
+
     if (!userToken) {
         res.status(403).send({
             message: 'ok'
@@ -47,7 +47,6 @@ module.exports = async (req, res) => {
                     filtered.push(el)
                 }
             })
-            console.log(filtered)
             let filterInterest = filtered
             startInterest = interestUpdate(interest, filterInterest, secondNum + 1)
         }

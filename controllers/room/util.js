@@ -38,7 +38,6 @@ module.exports = {
         return rooms
     },
     interestUpdate: (category, arr, plus) => {
-        console.log(category)
         for (let i = 0; i < arr.length; i++) {
             category.map(el => {
                 if (Object.keys(el).join() === arr[i]) {
