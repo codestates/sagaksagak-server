@@ -10,10 +10,13 @@ module.exports = async (req, res) => {
             include: [{ model: room, attributes: ['roomName', 'category'] }], raw: true
         })
         const records = await log.map(el => {
+            let date = el.updatedAt
+                date.setMinutes( date.getMinutes() + 540 );
             return {
                 roomName: el['room.roomName'],
                 category: el['room.category'],
-                workHours: el.workHours
+                workHours: el.workHours,
+                updatedAt: date
             }
         })
         let totalHours = {}
@@ -24,7 +27,14 @@ module.exports = async (req, res) => {
                 totalHours[el.category] = totalHours[el.category] + el.workHours
             }
         })
-
+        totalHours = Object.entries(totalHours)
+        totalHours = totalHours.map(el => {
+            return {
+                category: el[0],
+                hours: el[1]
+            }
+        })
+        console.log(totalHours)
         res.status(200).send({
             records,
             totalHours
