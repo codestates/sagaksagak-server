@@ -14,7 +14,7 @@ router.patch('/user/:id/category', controllers.category);
 router.patch('/user/:id/username', controllers.username);
 router.patch('/user/:id/password', controllers.password);
 router.get('/studylog', controllers.studylog);
-router.get('/studylog/:id', controllers.record);
+router.get('/studylog/user/:id', controllers.record);
 router.post('/todo', controllers.newToDo);
 router.patch('/todo/:id', controllers.checkToDo);
 router.delete('/todo/:id', controllers.deleteToDo);
