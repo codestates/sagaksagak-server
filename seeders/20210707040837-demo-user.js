@@ -62,7 +62,7 @@ module.exports = {
       roomName: '주니어 개발자들 모여라',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"오늘도코딩"}]),
+      entry: JSON.stringify([{"DUMMY":"오늘도코딩"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -71,7 +71,7 @@ module.exports = {
       roomName: '아무공부나 자유롭게 해요',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"david"}]),
+      entry: JSON.stringify([{"DUMMY":"david"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"} ]),
       createdAt: new Date()
     }])
 
@@ -80,7 +80,7 @@ module.exports = {
       roomName: '어떠한 자격증이여도 괜찮아요',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"난자격증왕"}]),
+      entry: JSON.stringify([{"DUMMY":"난자격증왕"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -98,7 +98,7 @@ module.exports = {
       roomName: '요리 자격증 관심있는 분??',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"난요리사"}]),
+      entry: JSON.stringify([{"DUMMY":"난요리사"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -107,7 +107,7 @@ module.exports = {
       roomName: '서울대 가즈아',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"남서울대학생회장"}]),
+      entry: JSON.stringify([{"DUMMY":"남서울대학생회장"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -116,7 +116,7 @@ module.exports = {
       roomName: '중국어를 잘하고 싶다~ 손?',
       uuid: uuidV4(),
       category: '제2외국어',
-      entry: JSON.stringify([{"DUMMY":"홍콩반점"}]),
+      entry: JSON.stringify([{"DUMMY":"홍콩반점"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -125,7 +125,7 @@ module.exports = {
       roomName: '3달안에 취뽀만들어 주는 방',
       uuid: uuidV4(),
       category: '취업',
-      entry: JSON.stringify([{"DUMMY":"마법사"}]),
+      entry: JSON.stringify([{"DUMMY":"마법사"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:50:00"
     }])
 
@@ -134,7 +134,7 @@ module.exports = {
       roomName: '공무원 합격은 에듀윌',
       uuid: uuidV4(),
       category: '공무원',
-      entry: JSON.stringify([{"DUMMY":"서경석"}]),
+      entry: JSON.stringify([{"DUMMY":"서경석"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -152,7 +152,7 @@ module.exports = {
       roomName: '하이빌리브 아이캔 플라이',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"영계백숙"}]),
+      entry: JSON.stringify([{"DUMMY":"영계백숙"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 22:50:00"
     }])
 
@@ -161,7 +161,7 @@ module.exports = {
       roomName: '컴활 1급 따고 싶은 사람 여기로~~',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"빌게이츠"}]),
+      entry: JSON.stringify([{"DUMMY":"빌게이츠"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -170,7 +170,7 @@ module.exports = {
       roomName: 'SAT 2달 빡시게 준비방',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"난하버드생"}]),
+      entry: JSON.stringify([{"DUMMY":"난하버드생"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -197,7 +197,7 @@ module.exports = {
       roomName: 'america highschool math academy',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"파스칼"}]),
+      entry: JSON.stringify([{"DUMMY":"파스칼"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -206,7 +206,7 @@ module.exports = {
       roomName: '헬로우 잉글리쉬~~',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"오늘도영어"}]),
+      entry: JSON.stringify([{"DUMMY":"오늘도영어"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -215,7 +215,7 @@ module.exports = {
       roomName: '일본어 준비해서 도쿄대가즈아',
       uuid: uuidV4(),
       category: '제2외국어',
-      entry: JSON.stringify([{"DUMMY":"부산대학생"}]),
+      entry: JSON.stringify([{"DUMMY":"부산대학생"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -224,7 +224,7 @@ module.exports = {
       roomName: '프로필 사진 잘 찍고싶은 사람 모여',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"각도의중요성"}]),
+      entry: JSON.stringify([{"DUMMY":"각도의중요성"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -233,7 +233,7 @@ module.exports = {
       roomName: '9급공무원 합격은 이 방이란 말이야',
       uuid: uuidV4(),
       category: '공무원',
-      entry: JSON.stringify([{"DUMMY":"8급공무원"}]),
+      entry: JSON.stringify([{"DUMMY":"8급공무원"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -269,7 +269,7 @@ module.exports = {
       roomName: '컴활 2급 단 하루면 충분',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"거짓말쟁이"}]),
+      entry: JSON.stringify([{"DUMMY":"거짓말쟁이"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:30:00"
     }])
 
@@ -287,7 +287,7 @@ module.exports = {
       roomName: '자바스크립트 기초를 다져보자',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"이고잉"}]),
+      entry: JSON.stringify([{"DUMMY":"이고잉"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:30:00"
     }])
 
@@ -314,7 +314,7 @@ module.exports = {
       roomName: '고3을 위한 수능 준비방',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"잼민이"}]),
+      entry: JSON.stringify([{"DUMMY":"잼민이"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:05:00"
     }])
 
@@ -323,7 +323,7 @@ module.exports = {
       roomName: '영어를 뿌셔뿌셔',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"뿌셔뿌셔"}]),
+      entry: JSON.stringify([{"DUMMY":"뿌셔뿌셔"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:05:00"
     }])
 
@@ -341,7 +341,7 @@ module.exports = {
       roomName: '어떠한 스터디도 ok',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"아무개"}]),
+      entry: JSON.stringify([{"DUMMY":"아무개"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:05:00"
     }])
 
@@ -359,7 +359,7 @@ module.exports = {
       roomName: '7급 공무원이 되고 싶은 사람',
       uuid: uuidV4(),
       category: '공무원',
-      entry: JSON.stringify([{"DUMMY":"동사무소직원"}]),
+      entry: JSON.stringify([{"DUMMY":"동사무소직원"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -368,7 +368,7 @@ module.exports = {
       roomName: '스페인어를 뿌셔보자',
       uuid: uuidV4(),
       category: '제2외국어',
-      entry: JSON.stringify([{"DUMMY":"바모스"}]),
+      entry: JSON.stringify([{"DUMMY":"바모스"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -377,7 +377,7 @@ module.exports = {
       roomName: '조용히 공부만 하고 싶은 사람',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"우루루쾅쾅"}]),
+      entry: JSON.stringify([{"DUMMY":"우루루쾅쾅"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -386,7 +386,7 @@ module.exports = {
       roomName: '내가 git 알려줄게',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"gitws"}]),
+      entry: JSON.stringify([{"DUMMY":"gitws"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -404,7 +404,7 @@ module.exports = {
       roomName: '고전 영어 소설에 관심있으신분',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"아브라함링컨"}]),
+      entry: JSON.stringify([{"DUMMY":"아브라함링컨"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -440,7 +440,7 @@ module.exports = {
       roomName: '동기부여 자극방',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"이용진"}]),
+      entry: JSON.stringify([{"DUMMY":"이용진"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -557,7 +557,7 @@ module.exports = {
       roomName: '중학생들도 다 아는 고등수학 기초 개념다지기',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"잼민이"}]),
+      entry: JSON.stringify([{"DUMMY":"잼민이"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:01:00"
     }])
 
@@ -584,7 +584,7 @@ module.exports = {
       roomName: '영어 회화를 배워보자',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"야놀자"}]),
+      entry: JSON.stringify([{"DUMMY":"야놀자"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:03:00"
     }])
 
@@ -593,7 +593,7 @@ module.exports = {
       roomName: '자유롭게 하고 싶은 공부하는 방',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"이태원프리덤"}]),
+      entry: JSON.stringify([{"DUMMY":"이태원프리덤"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:50:00"
     }])
 
@@ -602,7 +602,7 @@ module.exports = {
       roomName: 'React 기초개념 잡기!!',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"hwang"}]),
+      entry: JSON.stringify([{"DUMMY":"hwang"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 18:50:00"
     }])
 
@@ -611,7 +611,7 @@ module.exports = {
       roomName: 'C++ 배워보자',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"코딩마스터"}]),
+      entry: JSON.stringify([{"DUMMY":"코딩마스터"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:50:00"
     }])
 
@@ -620,7 +620,7 @@ module.exports = {
       roomName: 'CNN으로 배우는 영어',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"영어마스터"}]),
+      entry: JSON.stringify([{"DUMMY":"영어마스터"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:50:00"
     }])
 
@@ -629,7 +629,7 @@ module.exports = {
       roomName: '자유롭게 하고 싶은 공부하자',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"자유마스터"}]),
+      entry: JSON.stringify([{"DUMMY":"자유마스터"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -665,7 +665,7 @@ module.exports = {
       roomName: '자유롭게 하고 싶은 공부하기',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"자유한국당"}]),
+      entry: JSON.stringify([{"DUMMY":"자유한국당"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:50:00"
     }])
 
@@ -719,7 +719,7 @@ module.exports = {
       roomName: '경찰 준비하기',
       uuid: uuidV4(),
       category: '공무원',
-      entry: JSON.stringify([{"DUMMY":"우리동네파출소"}]),
+      entry: JSON.stringify([{"DUMMY":"우리동네파출소"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -728,7 +728,7 @@ module.exports = {
       roomName: '양식 조리사 자격증 공부방',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"고든램지"}]),
+      entry: JSON.stringify([{"DUMMY":"고든램지"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -755,7 +755,7 @@ module.exports = {
       roomName: '일본 여행에 필요한 일본어 공부',
       uuid: uuidV4(),
       category: '제2외국어',
-      entry: JSON.stringify([{"DUMMY":"와타시나마에와"}]),
+      entry: JSON.stringify([{"DUMMY":"와타시나마에와"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -782,7 +782,7 @@ module.exports = {
       roomName: '영국으로 유학가고 싶은 사람 손~~',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"신사의나라"}]),
+      entry: JSON.stringify([{"DUMMY":"신사의나라"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -800,7 +800,7 @@ module.exports = {
       roomName: '고1 국영수 마스터하기',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"잔잔바리"}]),
+      entry: JSON.stringify([{"DUMMY":"잔잔바리"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -845,7 +845,7 @@ module.exports = {
       roomName: '한식 조리사 자격증 공부방',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"대장금"}]),
+      entry: JSON.stringify([{"DUMMY":"대장금"},{"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:57:00"
     }])
 
