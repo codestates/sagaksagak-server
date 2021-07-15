@@ -64,8 +64,8 @@ module.exports = async (req, res) => {
                             }
                         }
                     }
-                    if (userInfo.category !== null) {
-                        let userCategory = JSON.parse(userInfo.category);
+                    if (userInfo.interest !== null) {
+                        let userCategory = JSON.parse(userInfo.interest);
                         for (let i = 0; i < userCategory.length; i++) {
                             let findRoom = await room.findOne({
                                 where: { category: String(Object.keys(userCategory[i]).join()), valid: true },
