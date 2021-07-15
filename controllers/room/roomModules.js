@@ -1,5 +1,5 @@
 const { user, room, join_log } = require('../../models')
-const { categoryUpdate } = require('./util')
+const { interestUpdate } = require('./util')
 const { v4: uuidV4 } = require('uuid')
 module.exports = {
     createRoom: async (req, res) => {
@@ -36,7 +36,6 @@ module.exports = {
                         username: el[Object.keys(el).join()]
                     }
                 })
-                console.log(users)
                 res.status(200).send({
                     users
                 })
@@ -88,20 +87,20 @@ module.exports = {
                 // 카테고리 업데이트(카테고리별 선호도 점수 주기)
                 const userCategory = await user.findOne({
                     where: { id: userId },
-                    attributes: ['category'],
+                    attributes: ['interest'],
                     raw: true
                 })
                 let target;
-                if (userCategory.category !== null) {
-                    target = JSON.parse(userCategory.category)
+                if (userCategory.interest !== null) {
+                    target = JSON.parse(userCategory.interest)
                 } else {
                     target = [{'코딩': 0}, {'국내입시': 0}, {'해외입시': 0}, {'영어': 0}, {'제2외국어': 0},
                     {'취업': 0}, {'자격증': 0}, {'공무원': 0}, {'예체능': 0}, {'자유': 0}]
                 }
-                let category = categoryUpdate(target, [roomInfo.category])
+                let interest = interestUpdate(target, [roomInfo.category])
 
                 await user.update({
-                    category
+                    interest
                 }, { where: { id: userId } })
             }
 
