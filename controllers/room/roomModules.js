@@ -47,7 +47,7 @@ module.exports = {
         }
     },
     io: (socket) => {
-        socket.on('join-room', async (roomId, peerId, userId, username) => {
+        socket.on('join-room', async (roomId, peerId, userId, username, streamId) => {
             const roomInfo = await room.findOne({
                 where: { uuid: roomId }, raw: true
             })
@@ -62,7 +62,7 @@ module.exports = {
                     entry: entry
                 }, { where: { uuid: roomId } })
                 socket.join(roomId)
-                socket.broadcast.to(roomId).emit('user-connected', peerId, username)
+                socket.broadcast.to(roomId).emit('user-connected', peerId, username, streamId)
             } else {
                 let users = {};
                 users[peerId] = username;
@@ -71,7 +71,7 @@ module.exports = {
                     entry: users
                 }, { where: { uuid: roomId } })
                 socket.join(roomId)
-                socket.broadcast.to(roomId).emit('user-connected', peerId, username)
+                socket.broadcast.to(roomId).emit('user-connected', peerId, username, streamId)
             }
             if (userId !== 1 && userId) {
                 let [find, create] = await join_log.findOrCreate({
@@ -131,7 +131,7 @@ module.exports = {
                         }, { where: { uuid: roomId } })
                     }
                 }
-                socket.broadcast.to(roomId).emit('user-disconnected', peerId, username)
+                socket.broadcast.to(roomId).emit('user-disconnected', peerId, username, streamId)
                 if (userId !== 1 && userId) {
 
                     // join_log테이블 workHours컬럼 계산 후 저장
