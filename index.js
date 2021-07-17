@@ -22,8 +22,8 @@ app.use(cors({
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
 }))
-app.use(express.json())
 app.use(cookieParser());
+app.use(express.json())
 app.use(urlencoded({ extended: false }))
 app.use('/', Router)
 
@@ -34,6 +34,3 @@ app.get('/', (req, res) => {
 })
 
 server.listen(PORT);
-
-
-module.exports = server;
