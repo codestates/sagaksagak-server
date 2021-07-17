@@ -21,7 +21,6 @@ module.exports = {
     sendRefreshToken: (res, refreshToken) => {
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            domain: process.env.CLIENT_ORIGIN,
             maxAge: `${1000 * 60 * 60 * 24 * 30}`
         });
     },
