@@ -118,7 +118,7 @@ module.exports = {
                 })
                 let entry = JSON.parse(roomInfo.entry)
                 if (entry !== null) {
-                    if (entry[0][peerId] === username && Object.keys(entry[0]).join() !== 'DUMMY') {
+                    if (entry.length === 1 && Object.keys(entry[0]).join() !== 'DUMMY') {
                         await room.update({
                             valid: false,
                             entry: null
