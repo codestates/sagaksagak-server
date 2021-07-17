@@ -19,7 +19,9 @@ module.exports = {
         });
     },
     sendRefreshToken: (res, refreshToken) => {
-        res.cookie("refreshToken", refreshToken);
+        res.cookie("refreshToken", refreshToken, {
+            httpOnly: true,
+        });
     },
     verifyAccessToken: (req) => {
         const authorization = req.headers["authorization"];
