@@ -21,7 +21,8 @@ module.exports = {
     sendRefreshToken: (res, refreshToken) => {
         res.cookie("refreshToken", refreshToken, {
             domain: 'sagaksagak.site',
-            maxAge: `${1000 * 60 * 60 * 24 * 30}`
+            maxAge: `${1000 * 60 * 60 * 24 * 30}`,
+            secure: true
         });
     },
     verifyAccessToken: (req) => {
