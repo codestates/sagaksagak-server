@@ -37,9 +37,10 @@ module.exports = async (req, res) => {
         sendRefreshToken(res, refreshToken);
 
         res.status(201).send({
+            accessToken,
             userId: users.dataValues.id,
             username: users.dataValues.username,
-            accessToken,
+            email: users.dataValues.email,
             subId: users.dataValues.subId
         })
     }
