@@ -48,6 +48,4 @@ join_log.belongsTo(user);
 user.belongsToMany(room, {through: join_log});
 room.belongsToMany(user, {through: join_log});
 
-
-
 module.exports = db;

@@ -31,12 +31,12 @@ module.exports = async (req, res) => {
 
         let todoList = await users.filter(el => {
             if(!el.isDone){
-                let date = el.createdAt
+                let date = el.updatedAt
                 date.setMinutes( date.getMinutes() + 540 );
                 return {
                     id: el.id,
                     content: el.content,
-                    createdAt: date
+                    updatedAt: date
                 }
             }
         })
