@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     const userToken = await verifyAccessToken(req)
 
     const user2 = req.body.newusername;
-    let username = decodeURI(user2)
+   
 
     if(!userToken){
         res.status(403).send({
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
         const userId = req.params.id;
         const userName = await user.findOne({
             where: {
-                username: username
+                username: user2
             }
         })
         if(userName){
