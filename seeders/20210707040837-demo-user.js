@@ -89,7 +89,7 @@ module.exports = {
       roomName: '타일러쌤과 함께하는 영어',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"타일러"}]),
+      entry: JSON.stringify([{"DUMMY":"타일러"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -143,7 +143,7 @@ module.exports = {
       roomName: '피아노 관심있으신분??',
       uuid: uuidV4(),
       category: '예체능',
-      entry: JSON.stringify([{"DUMMY":"베토벤"}]),
+      entry: JSON.stringify([{"DUMMY":"베토벤"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 21:50:00"
     }])
 
@@ -179,7 +179,7 @@ module.exports = {
       roomName: '꾸준히 복습하며 나아가는 코딩 방',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"주커버그"}]),
+      entry: JSON.stringify([{"DUMMY":"주커버그"}, {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -188,7 +188,7 @@ module.exports = {
       roomName: '국영수는 꽉 잡고 가야지~',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"설민석"}]),
+      entry: JSON.stringify([{"DUMMY":"설민석"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -242,7 +242,7 @@ module.exports = {
       roomName: '조용히 책 읽고 싶은 사람~~',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"오늘도독서"}]),
+      entry: JSON.stringify([{"DUMMY":"오늘도독서"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:30:00"
     }])
 
@@ -251,7 +251,7 @@ module.exports = {
       roomName: '요리 잘하는 사람?',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"사실난비룡"}]),
+      entry: JSON.stringify([{"DUMMY":"사실난비룡"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:30:00"
     }])
 
@@ -260,7 +260,7 @@ module.exports = {
       roomName: '리코더 잘불고 싶은 잼민이들?',
       uuid: uuidV4(),
       category: '예체능',
-      entry: JSON.stringify([{"DUMMY":"피리소녀"}]),
+      entry: JSON.stringify([{"DUMMY":"피리소녀"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:30:00"
     }])
 
@@ -278,7 +278,7 @@ module.exports = {
       roomName: '어떠한 공부도 환영이에요!',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"이태원프리덤"}]),
+      entry: JSON.stringify([{"DUMMY":"이태원프리덤"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:30:00"
     }])
 
@@ -296,7 +296,7 @@ module.exports = {
       roomName: '잠시 쉬어가는 방',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"투머치토커"}]),
+      entry: JSON.stringify([{"DUMMY":"투머치토커"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:05:00"
     }])
 
@@ -305,7 +305,7 @@ module.exports = {
       roomName: '바리스타 자격증 준비하시는 분들~~',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"바티스타"}]),
+      entry: JSON.stringify([{"DUMMY":"바티스타"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:05:00"
     }])
 
@@ -332,7 +332,7 @@ module.exports = {
       roomName: '해외취업에 관심있으신분들 여기로~',
       uuid: uuidV4(),
       category: '취업',
-      entry: JSON.stringify([{"DUMMY":"국내토박이"}]),
+      entry: JSON.stringify([{"DUMMY":"국내토박이"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:05:00"
     }])
 
@@ -350,7 +350,7 @@ module.exports = {
       roomName: 'html css 잡고 웹 뿌셔보자',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"ksyksy"}]),
+      entry: JSON.stringify([{"DUMMY":"ksyksy"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -395,7 +395,7 @@ module.exports = {
       roomName: '일본대학 입시는 여기여기 모여라',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"도요토미"}]),
+      entry: JSON.stringify([{"DUMMY":"도요토미"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:00:00"
     }])
 
@@ -413,7 +413,7 @@ module.exports = {
       roomName: '자유로운 공부방',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"david"}]),
+      entry: JSON.stringify([{"DUMMY":"david"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:00:00"
     }])
 
@@ -422,7 +422,7 @@ module.exports = {
       roomName: '인서울 가보즈아',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"뚜비두밥"}]),
+      entry: JSON.stringify([{"DUMMY":"뚜비두밥"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:00:00"
     }])
 
@@ -431,7 +431,7 @@ module.exports = {
       roomName: '중국 유학 관심있으신 분들 여기로',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"마오쩌둥"}]),
+      entry: JSON.stringify([{"DUMMY":"마오쩌둥"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:00:00"
     }])
 
@@ -449,7 +449,7 @@ module.exports = {
       roomName: '음악 이론 뿌셔보자',
       uuid: uuidV4(),
       category: '예체능',
-      entry: JSON.stringify([{"DUMMY":"모짜르트"}]),
+      entry: JSON.stringify([{"DUMMY":"모짜르트"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -458,7 +458,7 @@ module.exports = {
       roomName: '기초부터 시작하는 9급 공무원',
       uuid: uuidV4(),
       category: '공무원',
-      entry: JSON.stringify([{"DUMMY":"마을회관이장님"}]),
+      entry: JSON.stringify([{"DUMMY":"마을회관이장님"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -467,7 +467,7 @@ module.exports = {
       roomName: '불어 기초다지기',
       uuid: uuidV4(),
       category: '제2외국어',
-      entry: JSON.stringify([{"DUMMY":"이봉주르"}]),
+      entry: JSON.stringify([{"DUMMY":"이봉주르"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -476,7 +476,7 @@ module.exports = {
       roomName: '취업 고민상담 센터',
       uuid: uuidV4(),
       category: '취업',
-      entry: JSON.stringify([{"DUMMY":"백수"}]),
+      entry: JSON.stringify([{"DUMMY":"백수"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:30:00"
     }])
 
@@ -485,7 +485,7 @@ module.exports = {
       roomName: '미국대학 준비중이신 분들',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"마오쩌둥"}]),
+      entry: JSON.stringify([{"DUMMY":"마오쩌둥"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:30:00"
     }])
 
@@ -494,7 +494,7 @@ module.exports = {
       roomName: '고등학교 준비반',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"내신1등급"}]),
+      entry: JSON.stringify([{"DUMMY":"내신1등급"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:30:00"
     }])
 
@@ -503,7 +503,7 @@ module.exports = {
       roomName: '파이썬 기본개념 정리방',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"반로섬"}]),
+      entry: JSON.stringify([{"DUMMY":"반로섬"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-13 20:30:00"
     }])
 
@@ -512,7 +512,7 @@ module.exports = {
       roomName: '미드로 배우는 영어공부',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"타일러"}]),
+      entry: JSON.stringify([{"DUMMY":"타일러"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:01:00"
     }])
 
@@ -521,7 +521,7 @@ module.exports = {
       roomName: '일식조리사 자격증',
       uuid: uuidV4(),
       category: '자격증',
-      entry: JSON.stringify([{"DUMMY":"타케아"}]),
+      entry: JSON.stringify([{"DUMMY":"타케아"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:01:00"
     }])
 
@@ -530,7 +530,7 @@ module.exports = {
       roomName: '아무공부나 다 환영이에요',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"유령"}]),
+      entry: JSON.stringify([{"DUMMY":"유령"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:01:00"
     }])
 
@@ -539,7 +539,7 @@ module.exports = {
       roomName: '모여서 각자 공부하기',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"하리보"}]),
+      entry: JSON.stringify([{"DUMMY":"하리보"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:01:00"
     }])
 
@@ -548,7 +548,7 @@ module.exports = {
       roomName: 'C언어 뿌시기',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"데니스리치"}]),
+      entry: JSON.stringify([{"DUMMY":"데니스리치"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:01:00"
     }])
 
@@ -566,7 +566,7 @@ module.exports = {
       roomName: '프랑스로 유학준비중이신분들 여기로',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"이봉주르"}]),
+      entry: JSON.stringify([{"DUMMY":"이봉주르"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:03:00"
     }])
 
@@ -575,7 +575,7 @@ module.exports = {
       roomName: '모여서 각자 공부하기',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"디멘터"}]),
+      entry: JSON.stringify([{"DUMMY":"디멘터"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:03:00"
     }])
 
@@ -638,7 +638,7 @@ module.exports = {
       roomName: '개발자로 취업하고 싶은 사람??',
       uuid: uuidV4(),
       category: '취업',
-      entry: JSON.stringify([{"DUMMY":"취업마스터"}]),
+      entry: JSON.stringify([{"DUMMY":"취업마스터"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -647,7 +647,7 @@ module.exports = {
       roomName: '모여서 각자 하고 싶은 공부하기',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"hwjeong"}]),
+      entry: JSON.stringify([{"DUMMY":"hwjeong"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -656,7 +656,7 @@ module.exports = {
       roomName: '계주 스타트 이론으로 배우기',
       uuid: uuidV4(),
       category: '예체능',
-      entry: JSON.stringify([{"DUMMY":"우사인볼트"}]),
+      entry: JSON.stringify([{"DUMMY":"우사인볼트"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -674,7 +674,7 @@ module.exports = {
       roomName: '실생활 중국어 배우기',
       uuid: uuidV4(),
       category: '제2외국어',
-      entry: JSON.stringify([{"DUMMY":"마오쩌둥"}]),
+      entry: JSON.stringify([{"DUMMY":"마오쩌둥"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:50:00"
     }])
 
@@ -683,7 +683,7 @@ module.exports = {
       roomName: '강남 아이들의 공부법',
       uuid: uuidV4(),
       category: '국내입시',
-      entry: JSON.stringify([{"DUMMY":"대치동엄마"}]),
+      entry: JSON.stringify([{"DUMMY":"대치동엄마"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:50:00"
     }])
 
@@ -692,7 +692,7 @@ module.exports = {
       roomName: '캐나다 유학가고 싶은 사람',
       uuid: uuidV4(),
       category: '해외입시',
-      entry: JSON.stringify([{"DUMMY":"캐네디언"}]),
+      entry: JSON.stringify([{"DUMMY":"캐네디언"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:50:00"
     }])
 
@@ -701,7 +701,7 @@ module.exports = {
       roomName: '자유롭게 하고 싶은 공부해보자',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"아모르파티"}]),
+      entry: JSON.stringify([{"DUMMY":"아모르파티"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:50:00"
     }])
 
@@ -710,7 +710,7 @@ module.exports = {
       roomName: '배드민턴 이론으로 배우기',
       uuid: uuidV4(),
       category: '예체능',
-      entry: JSON.stringify([{"DUMMY":"이용대"}]),
+      entry: JSON.stringify([{"DUMMY":"이용대"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 10:03:00"
     }])
 
@@ -737,7 +737,7 @@ module.exports = {
       roomName: '디자이너로 취업하기',
       uuid: uuidV4(),
       category: '취업',
-      entry: JSON.stringify([{"DUMMY":"재단왕김빵꾸"}]),
+      entry: JSON.stringify([{"DUMMY":"재단왕김빵꾸"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -746,7 +746,7 @@ module.exports = {
       roomName: '웹개발자 입문 기본 개념잡기',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"노마드코더"}]),
+      entry: JSON.stringify([{"DUMMY":"노마드코더"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -764,7 +764,7 @@ module.exports = {
       roomName: '인공지능 기초 다지기',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"AI"}]),
+      entry: JSON.stringify([{"DUMMY":"AI"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -773,7 +773,7 @@ module.exports = {
       roomName: '영화로 공부하는 영어',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"스가"}]),
+      entry: JSON.stringify([{"DUMMY":"스가"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -791,7 +791,7 @@ module.exports = {
       roomName: '어떠한 공부도 환영이에요!!',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"랜덤"}]),
+      entry: JSON.stringify([{"DUMMY":"랜덤"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -809,7 +809,7 @@ module.exports = {
       roomName: '텐서플로우 기본 개념잡기',
       uuid: uuidV4(),
       category: '코딩',
-      entry: JSON.stringify([{"DUMMY":"인공지능"}]),
+      entry: JSON.stringify([{"DUMMY":"인공지능"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -818,7 +818,7 @@ module.exports = {
       roomName: '모여서 각자 공부하기',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"1학년6반김민재"}]),
+      entry: JSON.stringify([{"DUMMY":"1학년6반김민재"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: new Date()
     }])
 
@@ -827,7 +827,7 @@ module.exports = {
       roomName: '여기가 도서관이다 생각합시당',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"라이브러리"}]),
+      entry: JSON.stringify([{"DUMMY":"라이브러리"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 09:57:00"
     }])
 
@@ -836,7 +836,7 @@ module.exports = {
       roomName: '신나게 말하면서 배우는 영어',
       uuid: uuidV4(),
       category: '영어',
-      entry: JSON.stringify([{"DUMMY":"타일러"}]),
+      entry: JSON.stringify([{"DUMMY":"타일러"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:57:00"
     }])
 
@@ -854,7 +854,7 @@ module.exports = {
       roomName: '어떠한 공부도 환영이에요!',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"송충이"}]),
+      entry: JSON.stringify([{"DUMMY":"송충이"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:57:00"
     }])
 
@@ -863,7 +863,7 @@ module.exports = {
       roomName: '정치에 관심 있으신분들',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"나는야대통령"}]),
+      entry: JSON.stringify([{"DUMMY":"나는야대통령"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:57:00"
     }])
 
@@ -872,7 +872,7 @@ module.exports = {
       roomName: '자유롭게 공부하시면 됩니당',
       uuid: uuidV4(),
       category: '자유',
-      entry: JSON.stringify([{"DUMMY":"스터디마스터"}]),
+      entry: JSON.stringify([{"DUMMY":"스터디마스터"},  {"6816750d-2445-4f1c-9a40-d185a4c37e7e": "david"}]),
       createdAt: "2021-07-14 08:57:00"
     }])
     
