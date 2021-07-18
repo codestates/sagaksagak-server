@@ -4,13 +4,21 @@ const { verifyAccessToken } = require('../../../middlewares/token');
 module.exports = async (req, res) => {
     const userToken = await verifyAccessToken(req)
 
+    const user2 = req.body.newusername;
+    let username = decodeURI(user2)
+
     if(!userToken){
         res.status(403).send({
             message: 'access token expired'
         })
     }else{
         const userId = req.params.id;
-        if(!userId){
+        const userName = await user.findOne({
+            where: {
+                username: username
+            }
+        })
+        if(userName){
             res.status(409).send({
                 message: 'username exist'
             })
