@@ -34,7 +34,6 @@ module.exports = async (req, res) => {
                 hours: el[1]
             }
         })
-        console.log(totalHours)
         res.status(200).send({
             records,
             totalHours

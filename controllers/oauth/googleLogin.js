@@ -14,7 +14,6 @@ module.exports = async (req, res) => {
     
     const { email } = ticket.getPayload();  
 
-    console.log('33333', ticket.getPayload())
     const userInfo = await user.findOne({
         where: { email: email },
         raw: true
